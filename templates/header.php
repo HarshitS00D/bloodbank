@@ -6,7 +6,6 @@ $path = $_SERVER['PHP_SELF'];
 $pathArray = explode("/", $path);
 $sizePathArray = sizeof($pathArray);
 $pathEnd = $pathArray[$sizePathArray - 1];
-echo $pathEnd;
 
 
 if (isset($_SESSION['LOGGED_IN_AS'])) {
