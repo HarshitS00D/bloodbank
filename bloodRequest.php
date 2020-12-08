@@ -73,9 +73,9 @@ $bloodGroupArray = array('1' => 'O+', '2' => 'O-', '3' => 'A+', '4' => 'A-', '5'
             </thead>
             <tbody>
                 <?php
-                $sql = "SELECT * from blood_request";
+                $sql = "SELECT * from blood_request where HospitalId = ?";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute();
+                $stmt->execute([$_SESSION['HOSPITAL']['HospitalId']]);
 
                 $rows = $stmt->fetchAll();
 
