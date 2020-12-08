@@ -147,5 +147,5 @@ if (isset($_SESSION['LOGGED_IN_AS'])) {
 </head>
 
 <script>
-    axios.defaults.baseURL = 'http://localhost/bloodbank/'; // comment off when working locally
+    //axios.defaults.baseURL = 'http://localhost/bloodbank/'; // comment off when working locally
 </script>
