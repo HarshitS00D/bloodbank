@@ -5,7 +5,7 @@ session_start();
 include '../config/db_connect.php';
 
 if (isset($_SESSION['LOGGED_IN_AS'])) {
-    header("Location:/bloodbank/index.php");
+    header("Location:../index.php");
 }
 
 $firstName = $lastName = $email = $phoneNumber = $bloodGroup = $password = $confirmPassword = '';
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
                 echo 'query failed';
             }
 
-            header('Location: /bloodbank/login.php');
+            header('Location: ../login.php');
         } else {
             $errors['email'] = 'Email is already registered';
         }
@@ -165,8 +165,8 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="d-flex">
-                <p><a href="/bloodbank/register/hospital.php" class="text-primary">Register as a Hospital ?</a></p>
-                <p class="ml-auto"><a href="/bloodbank/login.php" class="text-primary">Already have an Account ?</a></p>
+                <p><a href="hospital.php" class="text-primary">Register as a Hospital ?</a></p>
+                <p class="ml-auto"><a href="../login.php" class="text-primary">Already have an Account ?</a></p>
             </div>
 
         </form>

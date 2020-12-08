@@ -39,7 +39,7 @@ $eligibleBloodGroupArray = array( // to find out all blood group with their elig
             <?php
             if ($loggedInAsUser) {
             ?>
-                axios.post('/bloodbank/handleBloodRequest.php', {
+                axios.post('/handleBloodRequest.php', {
                         UserId: <?php echo $_SESSION['USER']['UserId'] ?>,
                         HospitalId,
                         BloodGroup,
@@ -74,7 +74,7 @@ $eligibleBloodGroupArray = array( // to find out all blood group with their elig
             $('#staticBackdrop').modal('toggle');
 
         } else {
-            window.location.href = '/bloodbank/login.php';
+            window.location.href = 'login.php';
         }
     }
 </script>

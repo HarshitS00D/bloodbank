@@ -3,11 +3,15 @@
 $loginLogoutLabel = $loginLogoutRedirect = $loggedInAsUser = $loggedInAsHospital = '';
 
 $path = $_SERVER['PHP_SELF'];
+$pathArray = explode("/", $path);
+$sizePathArray = sizeof($pathArray);
+$pathEnd = $pathArray[$sizePathArray - 1];
+echo $pathEnd;
 
 
 if (isset($_SESSION['LOGGED_IN_AS'])) {
     $loginLogoutLabel = 'Logout';
-    $loginLogoutRedirect = '/bloodbank/logout.php';
+    $loginLogoutRedirect = 'logout.php';
 
     if (isset($_SESSION['USER'])) {
         $loggedInAsUser = true;
@@ -18,7 +22,7 @@ if (isset($_SESSION['LOGGED_IN_AS'])) {
     }
 } else {
     $loginLogoutLabel = 'Login';
-    $loginLogoutRedirect = '/bloodbank/login.php';
+    $loginLogoutRedirect = 'login.php';
 
     $loggedInAsUser = $loggedInAsHospital = false;
 }
@@ -99,37 +103,37 @@ if (isset($_SESSION['LOGGED_IN_AS'])) {
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mr-auto">
-                <li class="nav-item <?php echo $path == '/bloodbank/index.php' ? 'active' : null ?> mr-3">
-                    <a class="nav-link" href="/bloodbank/">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item <?php echo $pathEnd == 'index.php' ? 'active' : null ?> mr-3">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item <?php echo $path == '/bloodbank/availableBlood.php' ? 'active' : null ?> mr-3">
-                    <a class="nav-link" href="/bloodbank/availableBlood.php">Available Blood</a>
+                <li class="nav-item <?php echo $pathEnd == 'availableBlood.php' ? 'active' : null ?> mr-3">
+                    <a class="nav-link" href="availableBlood.php">Available Blood</a>
                 </li>
 
                 <?php
                 if ($loggedInAsUser) {
-                    $active = $path == '/bloodbank/bloodRequestHistory.php' ? 'active' : '';
+                    $active = $pathEnd == 'bloodRequestHistory.php' ? 'active' : '';
                 ?>
                     <li class="nav-item <?php echo $active ?> mr-3">
-                        <a class="nav-link" href="/bloodbank/bloodRequestHistory.php">Blood Request History</a>
+                        <a class="nav-link" href="bloodRequestHistory.php">Blood Request History</a>
                     </li>
 
                 <?php }
 
 
                 if ($loggedInAsHospital) {
-                    $active = $path == '/bloodbank/addBlood.php' ? ' active ' : '';
+                    $active = $pathEnd == 'addBlood.php' ? ' active ' : '';
 
                 ?>
                     <li class="nav-item <?php echo $active ?> mr-3">
-                        <a class="nav-link" href="/bloodbank/addBlood.php">Add Blood</a>
+                        <a class="nav-link" href="addBlood.php">Add Blood</a>
                     </li>
 
                     <?php
-                    $active = $path == '/bloodbank/bloodRequest.php' ? ' active ' : '';
+                    $active = $pathEnd == 'bloodRequest.php' ? ' active ' : '';
                     ?>
                     <li class="nav-item <?php echo $active ?> mr-3">
-                        <a class="nav-link" href="/bloodbank/bloodRequest.php">Blood Requests</a>
+                        <a class="nav-link" href="bloodRequest.php">Blood Requests</a>
                     </li>
 
                 <?php } ?>
@@ -141,3 +145,7 @@ if (isset($_SESSION['LOGGED_IN_AS'])) {
     </nav>
 
 </head>
+
+<script>
+    axios.defaults.baseURL = 'http://localhost/bloodbank/';
+</script>

@@ -1,9 +1,16 @@
 <?php
 try {
-    $host = 'localhost';
-    $user = 'root';
-    $password = '';
-    $dbname = 'bloodbank';
+    //remote database connection
+    $host = 'remotemysql.com';
+    $user = 'ysO8lvYgTt';
+    $password = 'obgztEn68s';
+    $dbname = 'ysO8lvYgTt';
+
+    // local database connection
+    // $host = 'localhost';
+    // $user = 'root';
+    // $password = '';
+    // $dbname = 'bloodbank';
 
     // set dsn
     $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;

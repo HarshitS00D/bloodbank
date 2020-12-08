@@ -6,7 +6,7 @@
 session_start();
 
 if (!isset($_SESSION['HOSPITAL'])) {
-    header('Location:/bloodbank/login.php');
+    header('Location:login.php');
 }
 
 include 'config/db_connect.php';

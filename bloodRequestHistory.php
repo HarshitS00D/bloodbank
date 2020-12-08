@@ -5,7 +5,7 @@ session_start();
 include 'config/db_connect.php';
 
 if (!isset($_SESSION['USER'])) {
-    header('Location:/bloodbank/login.php');
+    header('Location:login.php');
 }
 
 $bloodGroupArray = array('1' => 'O+', '2' => 'O-', '3' => 'A+', '4' => 'A-', '5' => 'B+', '6' => 'B-', '7' => 'AB+', '8' => 'AB-');

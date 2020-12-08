@@ -5,7 +5,7 @@ session_start();
 include 'config/db_connect.php';
 
 if (isset($_SESSION['LOGGED_IN_AS'])) {
-    header("Location:/bloodbank/index.php");
+    header("Location:index.php");
 }
 
 $email = $password = $loginAs = '';
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
                     $_SESSION['LOGGED_IN_AS'] = $loginAs;
                     $_SESSION['USER'] = $user;
 
-                    header('Location:/bloodbank/index.php');
+                    header('Location: index.php');
                 } else {
                     $errors['password'] = "Wrong password";
                 }
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
                     $_SESSION['LOGGED_IN_AS'] = $loginAs;
                     $_SESSION['HOSPITAL'] = $hospital;
 
-                    header('Location:/bloodbank/index.php');
+                    header('Location: index.php');
                 } else {
                     $errors['password'] = "Wrong password";
                 }
@@ -158,8 +158,8 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="d-flex">
-                <p><a href="/bloodbank/register/user.php" class="text-primary">Register as a User ?</a></p>
-                <p class="ml-auto"><a href="/bloodbank/register/hospital.php" class="text-primary">Register as a Hospital ?</a></p>
+                <p><a href="register/user.php" class="text-primary">Register as a User ?</a></p>
+                <p class="ml-auto"><a href="register/hospital.php" class="text-primary">Register as a Hospital ?</a></p>
             </div>
 
 

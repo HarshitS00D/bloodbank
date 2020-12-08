@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['HOSPITAL'])) {
-    header('Location:/bloodbank/login.php');
+    header('Location:login.php');
 }
 
 include 'config/db_connect.php';
@@ -20,7 +20,7 @@ $bloodGroupArray = array('1' => 'O+', '2' => 'O-', '3' => 'A+', '4' => 'A-', '5'
 <script>
     function approveBloodRequest(RequestId, HospitalId, BloodGroup, Quantity) {
 
-        axios.post('/bloodbank/handleBloodRequest.php', {
+        axios.post('/handleBloodRequest.php', {
                 Approve: 'Approve',
                 RequestId,
                 HospitalId,
@@ -42,7 +42,7 @@ $bloodGroupArray = array('1' => 'O+', '2' => 'O-', '3' => 'A+', '4' => 'A-', '5'
 
     function declineBloodRequest(RequestId) {
 
-        axios.post('/bloodbank/handleBloodRequest.php', {
+        axios.post('/handleBloodRequest.php', {
                 Decline: 'Decline',
                 RequestId
             })
